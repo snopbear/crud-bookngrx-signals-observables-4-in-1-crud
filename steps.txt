@@ -1,0 +1,12 @@
+1. 5.npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools
+
+
+----------------------------------------------------------------
+1. IBook Interface
+2. IAppState Interface
+3. Book Actions
+4. Book Reducers 
+5. Import Reducer to  app module
+6. Create effects
+7. Import action and reducer to effect
+
