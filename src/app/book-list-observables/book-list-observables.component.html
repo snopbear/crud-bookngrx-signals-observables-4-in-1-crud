@@ -1,0 +1,22 @@
+<div class="book-container">
+  <h2>Book List</h2>
+
+  <div class="book-form">
+    <input class="form-input" type="text" [(ngModel)]="newBook.title" placeholder="Title" />
+    <input class="form-input" type="text" [(ngModel)]="newBook.author" placeholder="Author" />
+    <button class="form-button" (click)="addBook()" *ngIf="!newBook.id">Add Book</button>
+    <button class="form-button" (click)="updateBook()" *ngIf="newBook.id">Update Book</button>
+  </div>
+
+  <ul class="book-list">
+    <li class="book-item" *ngFor="let book of books$ | async">
+      <div class="book-info">
+        <strong>{{ book.title }}</strong> by {{ book.author }}
+      </div>
+      <div class="book-actions">
+        <button class="action-button" (click)="editBook(book)">Edit</button>
+        <button class="action-button delete" (click)="deleteBook(book.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

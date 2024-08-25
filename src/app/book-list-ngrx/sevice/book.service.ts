@@ -1,13 +1,13 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, tap } from 'rxjs';
-import { IBook } from '../model/book.interface';
+import { IBook } from '../../model/book.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  private apiUrl = 'http://localhost:3000/books';
+  private apiUrl = 'http://localhost:3000/booksNgrx';
 
   // Signals for state management
   books: WritableSignal<IBook[]> = signal([]); // Signal to hold the list of books

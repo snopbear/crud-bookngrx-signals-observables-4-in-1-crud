@@ -4,17 +4,17 @@ import { AsyncPipe, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { loadBooks, addBook, deleteBook } from '../books/book.actions';
-import { selectAllBooks, selectBooksError } from '../books/books.selectors';
+import { loadBooks, addBook, deleteBook } from './state/book.actions';
+import { selectAllBooks, selectBooksError } from './state/book.selectors';
 
 @Component({
   selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.scss'],
+  templateUrl: './book-list-ngrx.component.html',
+  styleUrls: ['./book-list-ngrx.component.scss'],
   standalone: true,
   imports: [NgFor, NgIf, AsyncPipe, FormsModule, JsonPipe],
 })
-export class BookListComponent implements OnInit {
+export class BookListNgrxComponent implements OnInit {
   books$: Observable<IBook[]>;
   error$: Observable<string | null>;
 

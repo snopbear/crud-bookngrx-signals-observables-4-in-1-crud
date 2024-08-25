@@ -1,2 +1,12 @@
-<app-book-list/>
-<router-outlet/>
+<nav>
+    <ul>
+        <li><a [routerLink]="['/book-list-ngrx']" routerLinkActive="router-link-active">Book List NGRX</a> </li>
+        <li><a [routerLink]="['/book-list-ngrx-signals']" routerLinkActive="router-link-active">Book List NGRX Signals
+</a> </li>
+        <li><a [routerLink]="['/book-list-signals']" routerLinkActive="router-link-active">Book List Signals
+</a> </li>
+        <li><a [routerLink]="['/book-list-observables']" routerLinkActive="router-link-active">Book List Observables
+</a> </li>
+    </ul>
+</nav>
+<router-outlet />

@@ -1,5 +1,17 @@
 {
-  "books": [
+  "booksNgrx": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "booksNgrxSignals": [
     {
       "id": "1",
       "title": "json-server",
@@ -14,6 +26,35 @@
       "id": "lq8dsxaz2",
       "title": "test",
       "author": "test"
+    }
+  ],
+  "booksSignals": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "booksObservables": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "p9on2prt2",
+      "title": "asd",
+      "author": "asd"
     }
   ]
 }

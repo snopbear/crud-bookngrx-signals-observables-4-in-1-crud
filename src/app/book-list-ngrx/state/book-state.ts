@@ -1,4 +1,4 @@
-import { IBook } from "../model/book.interface";
+import { IBook } from "../../model/book.interface";
 
 
 export interface BooksState {

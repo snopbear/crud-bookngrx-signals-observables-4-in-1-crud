@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { IBook } from '../model/book.interface';
+import { IBook } from '../../model/book.interface';
 
+// Actions for loading books
 export const loadBooks = createAction('[Books] Load Books');
 export const loadBooksSuccess = createAction(
   '[Books] Load Books Success',
@@ -11,6 +12,7 @@ export const loadBooksFailure = createAction(
   props<{ error: any }>()
 );
 
+// Actions for adding a book
 export const addBook = createAction(
   '[Books] Add Book',
   props<{ book: IBook }>()
@@ -24,6 +26,7 @@ export const addBookFailure = createAction(
   props<{ error: any }>()
 );
 
+// Actions for updating a book
 export const updateBook = createAction(
   '[Books] Update Book',
   props<{ book: IBook }>()
@@ -37,6 +40,7 @@ export const updateBookFailure = createAction(
   props<{ error: any }>()
 );
 
+// Actions for deleting a book
 export const deleteBook = createAction(
   '[Books] Delete Book',
   props<{ id: string }>()

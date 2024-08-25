@@ -1,34 +1,35 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import {
-  loadBooks,
-  loadBooksSuccess,
-  loadBooksFailure,
   addBook,
   addBookSuccess,
   addBookFailure,
-  updateBook,
-  updateBookSuccess,
-  updateBookFailure,
   deleteBook,
   deleteBookSuccess,
   deleteBookFailure,
-} from './book.actions';
-import { IBook } from '../model/book.interface';
-import { BookService } from '../service/book.service';
+  loadBooks,
+  loadBooksSuccess,
+  loadBooksFailure,
+  updateBook,
+  updateBookSuccess,
+  updateBookFailure,
+} from './book-signals.actions';
+import { BookSignalsService } from '../service/book-signals.service';
 
 @Injectable()
-export class BookEffects {
-  actions$ = inject(Actions);
-  bookService = inject(BookService);
+export class BookSignalsEffects {
+  constructor(
+    private actions$: Actions,
+    private bookSignalsService: BookSignalsService
+  ) {}
 
   loadBooks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadBooks),
       mergeMap(() =>
-        this.bookService.loadBooks().pipe(
+        this.bookSignalsService.loadBooks().pipe(
           map((books) => loadBooksSuccess({ books })),
           catchError((error) => of(loadBooksFailure({ error })))
         )
@@ -40,8 +41,8 @@ export class BookEffects {
     this.actions$.pipe(
       ofType(addBook),
       mergeMap((action) =>
-        this.bookService.addBook(action.book).pipe(
-          map((newBook) => addBookSuccess({ book: newBook })),
+        this.bookSignalsService.addBook(action.book).pipe(
+          map((book) => addBookSuccess({ book })),
           catchError((error) => of(addBookFailure({ error })))
         )
       )
@@ -52,8 +53,8 @@ export class BookEffects {
     this.actions$.pipe(
       ofType(updateBook),
       mergeMap((action) =>
-        this.bookService.updateBook(action.book).pipe(
-          map((updatedBook) => updateBookSuccess({ book: updatedBook })),
+        this.bookSignalsService.updateBook(action.book).pipe(
+          map((book) => updateBookSuccess({ book })),
           catchError((error) => of(updateBookFailure({ error })))
         )
       )
@@ -64,7 +65,7 @@ export class BookEffects {
     this.actions$.pipe(
       ofType(deleteBook),
       mergeMap((action) =>
-        this.bookService.deleteBook(action.id).pipe(
+        this.bookSignalsService.deleteBook(action.id).pipe(
           map(() => deleteBookSuccess({ id: action.id })),
           catchError((error) => of(deleteBookFailure({ error })))
         )
